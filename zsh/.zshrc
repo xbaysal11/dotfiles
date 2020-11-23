@@ -43,6 +43,8 @@ alias hg="history | grep "
 # alias ports="netstat -nlp"
 # alias mc='~/.config/polybar/scripts/macCommand.sh'
 alias wclone='wget --limit-rate=200k -nc -k --random-wait -r -p -E -e robots=off -U mozilla'
+alias stowLink='stow --adopt -vt ~ *'
+alias stowUnlink='stow -vDt ~ *' 
 
 ### Config files
 
@@ -52,7 +54,6 @@ alias s="speedtest --no-upload"
 
 ### Devices
 alias ttl='sudo sysctl -w net.inet.ip.ttl=65;echo "TTL successfully changed to 65"'
-# alias ttl='sudo sysctl net.ipv4.ip_default_ttl=65;echo "TTL successfully changed to 65"'
 
 ### DNS
 alias dns='cat /etc/resolv.conf'
