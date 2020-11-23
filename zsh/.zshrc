@@ -44,7 +44,7 @@ alias hg="history | grep "
 # alias mc='~/.config/polybar/scripts/macCommand.sh'
 alias wclone='wget --limit-rate=200k -nc -k --random-wait -r -p -E -e robots=off -U mozilla'
 alias stowLink='stow --adopt -vt ~ *'
-alias stowUnlink='stow -vDt ~ *' 
+alias stowUnlink='stow -vDt ~ *'
 
 ### Config files
 
