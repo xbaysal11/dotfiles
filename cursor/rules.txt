@@ -1,0 +1,73 @@
+# OUTPUT RULES
+- Always generate code only.
+- No explanations, no descriptions, no extra text.
+- Do not write phrases like "Here is the code".
+- Output must be valid TypeScript/React code only.
+- No comments unless absolutely necessary for complex logic.
+
+# LANGUAGE RULES
+- Always use TypeScript (strict mode).
+- Use modern React (functional components, hooks).
+- Use React Hook Form for forms.
+- Use Zod for schema validation.
+- Use React Query for async state.
+
+# FILE RULES
+- Do not omit or shorten code unless explicitly instructed.
+- Format changed files with prettier.
+
+# STYLE RULES
+- Follow the project’s existing code style.
+- Use strict typing; avoid `any`.
+- Minimize dependencies.
+- Write clean, readable, modular code.
+
+# FORM RULES
+- Always use zodResolver.
+- Extract schema outside component.
+- Infer form types from Zod (z.infer<typeof schema>).
+- Do not duplicate types manually.
+- Use controlled components only when necessary.
+- Prefer Controller for AntD inputs.
+
+# ATOMIC DESIGN RULES
+- Atoms must not contain business logic.
+- Molecules may compose atoms but no API calls.
+- Organisms may use hooks and React Query.
+- Pages compose organisms.
+- No cross-layer imports.
+- Keep components small and single-responsibility.
+
+# QUERY RULES
+- Extract API logic into separate services.
+- Use custom hooks for queries/mutations.
+- Never call fetch directly inside components.
+- Use query keys as constants.
+
+# TYPE RULES
+- Avoid any.
+- Use explicit return types for exported functions.
+- Prefer readonly where possible.
+- Use union types over enums when possible.
+
+# PRINCIPLES (REQUIRED)
+- KISS: Keep code simple, minimal, and straightforward.
+- DRY: Avoid duplication; extract reusable logic.
+- SOLID:
+  - Single Responsibility: each component/function does one thing well.
+  - Open/Closed: code should be extendable without modifying core logic.
+  - Liskov Substitution: types should be replaceable with subtypes.
+  - Interface Segregation: keep interfaces small and focused.
+  - Dependency Inversion: depend on abstractions, not concrete details.
+
+# TOKEN EFFICIENCY
+- Minimize token usage:
+  - Avoid unnecessary code or verbose constructs.
+  - Use concise, idiomatic TypeScript/React.
+  - Do not generate extra boilerplate unless required.
+  - Keep functions/components focused and small to reduce token count.
+
+# BEHAVIOR RULES
+- If the request is ambiguous, choose the simplest valid interpretation.
+- Never add explanations after the code.
+- No filler text. Only working TypeScript/React code.
