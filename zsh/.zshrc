@@ -72,8 +72,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
 zsh-autosuggestions
-    zsh-syntax-highlighting
-    ohmyzsh-full-autoupdate fzf)
+    zsh-syntax-highlighting)
 
 
 source $ZSH/oh-my-zsh.sh
@@ -106,11 +105,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias f="cd /d/code/roger/frontend"
-alias b="cd /d/code/roger/backend"
 alias c="clear"
 alias q="exit"
 alias zshrc="code ~/.zshrc"
 
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
