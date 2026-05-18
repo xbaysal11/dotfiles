@@ -1,4 +1,4 @@
-version: 7
+version: 8
 groups: []
 configSync:
   parts: {}
@@ -176,6 +176,7 @@ hotkeys:
     - Alt-PageUp
   scroll-page-down:
     - Alt-PageDown
+  open-sftp: []
 terminal:
   searchOptions: {}
   colorScheme:
