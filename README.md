@@ -26,12 +26,7 @@
 1. Download and install from [git-scm.com](https://git-scm.com/download/win).
 2. During setup, select **"Use Git from the Windows Command Prompt"**.
 3. Leave all other options at their defaults.
-
-Verify:
-
-```bash
-git --version
-```
+4. Verify: `git --version`
 
 ---
 
@@ -56,23 +51,13 @@ git --version
 1. Go to [MSYS2 Zsh Package](https://packages.msys2.org/package/zsh?repo=msys&variant=x86_64).
 2. Download the `.pkg.tar.zst` matching your architecture.
 3. Extract with **7-Zip** or **PeaZip**: `.zst` → `.tar` → folders.
-4. Merge `usr/` and `etc/` into your Git install path:
-
-   ```
-   C:\Program Files\Git
-   ```
-
-   *(Approve admin permissions if prompted.)*
+4. Merge `usr/` and `etc/` into `C:\Program Files\Git` *(approve admin permissions if prompted)*.
 
 ---
 
 ### 5. Default Git Bash to Zsh
 
-```bash
-nano ~/.bashrc
-```
-
-Add to the end of `.bashrc`:
+Add to the end of `~/.bashrc`:
 
 ```bash
 if [ -t 1 ]; then
@@ -115,23 +100,18 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting autoupdate)
 
 ### 8. Install nvm-windows
 
-1. Download the latest `nvm-setup.exe` from [nvm-windows Releases](https://github.com/coreybutler/nvm-windows/releases).
+1. Download `nvm-setup.exe` from [nvm-windows Releases](https://github.com/coreybutler/nvm-windows/releases).
 2. Run the installer and follow the prompts.
-3. Restart your terminal after installation.
-
-Verify:
-
-```bash
-nvm version
-```
+3. Restart your terminal.
+4. Verify: `nvm version`
 
 ---
 
 ### 9. Install Node.js via nvm
 
 ```bash
-nvm install --lts        # install latest LTS
-nvm use --lts            # activate it
+nvm install --lts
+nvm use --lts
 ```
 
 Verify:
@@ -141,15 +121,6 @@ node -v
 npm -v
 ```
 
-**Useful nvm commands:**
-
-| Command | Description |
-|---------|-------------|
-| `nvm list` | List installed versions |
-| `nvm install <version>` | Install a specific version |
-| `nvm use <version>` | Switch to a version |
-| `nvm uninstall <version>` | Remove a version |
-
 ---
 
 ### 10. Install Cursor
@@ -158,22 +129,9 @@ npm -v
 2. Run `CursorSetup.exe` and follow the prompts.
 3. On first launch, sign in and complete the onboarding.
 
-**Recommended settings:**
-
-- Set terminal to **Git Bash**: `Terminal › Default Profile: Git Bash`
-- Enable **Auto Save**: `File › Auto Save`
-
-**Set Cursor as default git editor (optional):**
-
-```bash
-git config --global core.editor "cursor --wait"
-```
-
 ---
 
 ### 11. Install Recommended Extensions
-
-Install all at once from the terminal:
 
 ```bash
 cursor --install-extension dbaeumer.vscode-eslint
@@ -185,12 +143,3 @@ cursor --install-extension usernamehw.errorlens
 cursor --install-extension ni3rav.andromeda-night
 ```
 
-| Extension | Purpose |
-|-----------|---------|
-| `dbaeumer.vscode-eslint` | ESLint integration |
-| `esbenp.prettier-vscode` | Code formatter |
-| `dsznajder.es7-react-js-snippets` | React / JS snippets |
-| `angular.ng-template` | Angular template support |
-| `pkief.material-icon-theme` | File icon theme |
-| `usernamehw.errorlens` | Inline error highlighting |
-| `ni3rav.andromeda-night` | Color theme |
