@@ -1,67 +1,196 @@
 # Ultimate Dev Terminal Setup for Windows
-A comprehensive guide to configuring a high-performance, modern development terminal environment using **Tabby**, **Fira Code**, **Zsh**, **Oh My Zsh**, and essential plugins on Windows.
+
+> Zsh + Oh My Zsh inside Git Bash via Tabby Terminal — no WSL required.
 
 ---
 
-## 📦 Prerequisites & Architecture
-This setup injects **Zsh** directly into your **Git Bash** environment inside **Tabby Terminal**, giving you a Unix-like experience natively on Windows without requiring WSL resource overhead.
+## Prerequisites
 
-### 📋 Checklist
-1. **Tabby Terminal** (Modern terminal emulator)
-2. **Fira Code** (Monospace font with programming ligatures)
-3. **Git for Windows** (Provides the Git Bash baseline)
-4. **Zsh Binaries** (MSYS2 compilation injected into Git Bash)
-5. **Oh My Zsh** + Performance Plugins
+| # | Tool | Purpose |
+|---|------|---------|
+| 1 | [Git for Windows](https://git-scm.com/download/win) | Git Bash baseline |
+| 2 | [Fira Code](https://github.com/tonsky/FiraCode/releases) | Monospace font with ligatures |
+| 3 | [Tabby Terminal](https://github.com/Eugeny/tabby/releases) | Modern terminal emulator |
+| 4 | Zsh Binaries (MSYS2) | Injected into Git Bash |
+| 5 | Oh My Zsh + Plugins | Shell framework & enhancements |
+| 6 | [nvm-windows](https://github.com/coreybutler/nvm-windows/releases) | Node version manager for Windows |
+| 7 | Node.js (via nvm) | JavaScript runtime |
+| 8 | [Cursor](https://www.cursor.com) | AI-powered code editor |
 
 ---
 
-## 🛠️ Step-by-Step Installation
+## Installation
 
-### Step 1: Install Fira Code Font
-To display icons, glyphs, and beautiful code ligatures correctly, you need a compatible font.
-1. Download the latest release ZIP from the official repository: [Fira Code Downloads](https://github.com/tonsky/FiraCode/releases).
-2. Extract the ZIP archive.
-3. Open the `ttf` folder, select all font files (`.ttf`), right-click, and select **Install for all users**.
+### 1. Git for Windows
 
-### Step 2: Install & Configure Tabby Terminal
-1. Download and install Tabby from the [Tabby Github Releases Page](https://github.com/Eugeny/tabby/releases).
-2. Open Tabby and enter **Settings** (`Ctrl + ,`).
-3. Paste config.yaml file to `C:\Users\username\AppData\Roaming\tabby`
-4. Under **Profiles & connections**:
-   * Verify that **Git Bash** is detected. We will configure this profile to default to Zsh shortly.
+1. Download and install from [git-scm.com](https://git-scm.com/download/win).
+2. During setup, select **"Use Git from the Windows Command Prompt"**.
+3. Leave all other options at their defaults.
 
-### Step 3: Inject Zsh into Git Bash
-Because Git Bash on Windows doesn't ship with Zsh natively, we must add the compiled binaries manually.
-1. Navigate to the [MSYS2 Zsh Package Repository](https://packages.msys2.org/package/zsh?repo=msys&variant=x86_64).
-2. Download the compressed binary package matching your architecture (e.g., `zsh-5.9-2-x86_64.pkg.tar.zst`).
-3. Extract the `.zst` file using an extractor like **7-Zip** or **PeaZip** to get the `.tar` file. Extract the `.tar` file to reveal the inner folders (specifically `usr` and `etc`).
-4. Copy the contents of the extracted **`usr`** and **`etc`** folders and merge them directly into your native Git installation path, typically located at:
-   `C:\Program Files\Git`
-   *(Grant administrator folder permissions if prompted by Windows).*
+Verify:
 
-### Step 4: Configure Git Bash to Default to Zsh
-1. Open Git Bash (or launch the Git Bash profile inside Tabby).
-2. Create or open your Bash profile config:
-   ```bash
-   nano ~/.bashrc
+```bash
+git --version
+```
+
+---
+
+### 2. Fira Code Font
+
+1. Download the latest ZIP from [FiraCode Releases](https://github.com/tonsky/FiraCode/releases).
+2. Extract → open `ttf/` → select all `.ttf` files → right-click → **Install for all users**.
+
+---
+
+### 3. Tabby Terminal
+
+1. Install from [Tabby Releases](https://github.com/Eugeny/tabby/releases).
+2. Open **Settings** (`Ctrl+,`).
+3. Copy `config.yaml` to `C:\Users\<username>\AppData\Roaming\tabby\`.
+4. Under **Profiles & connections**, verify **Git Bash** is detected.
+
+---
+
+### 4. Inject Zsh into Git Bash
+
+1. Go to [MSYS2 Zsh Package](https://packages.msys2.org/package/zsh?repo=msys&variant=x86_64).
+2. Download the `.pkg.tar.zst` matching your architecture.
+3. Extract with **7-Zip** or **PeaZip**: `.zst` → `.tar` → folders.
+4. Merge `usr/` and `etc/` into your Git install path:
+
    ```
-### Step 5: Install Oh My Zsh
-Launch your terminal (which should now automatically load into a clean Zsh prompt). If prompted with a first-time setup wizard, press `0` to create an empty profile.
+   C:\Program Files\Git
+   ```
 
-Run the official automated setup script:
+   *(Approve admin permissions if prompted.)*
+
+---
+
+### 5. Default Git Bash to Zsh
+
 ```bash
-sh -c "$(curl -fsSL [https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh](https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh))"
+nano ~/.bashrc
 ```
-### Step 6: Install plugins
 
-Run one by one: 
+Add to the end of `.bashrc`:
+
 ```bash
-# Clone Autosuggestions
-git clone [https://github.com/zsh-users/zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-# Clone Syntax Highlighting
-git clone [https://github.com/zsh-users/zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-# Clone Background Auto-updater
-git clone clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/autoupdate
+if [ -t 1 ]; then
+  exec zsh
+fi
 ```
+
+---
+
+### 6. Install Oh My Zsh
+
+If prompted on first launch, press `0` to create an empty profile.
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+---
+
+### 7. Install Oh My Zsh Plugins
+
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions \
+  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting \
+  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins \
+  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/autoupdate
+```
+
+Enable in `~/.zshrc`:
+
+```zsh
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting autoupdate)
+```
+
+---
+
+### 8. Install nvm-windows
+
+1. Download the latest `nvm-setup.exe` from [nvm-windows Releases](https://github.com/coreybutler/nvm-windows/releases).
+2. Run the installer and follow the prompts.
+3. Restart your terminal after installation.
+
+Verify:
+
+```bash
+nvm version
+```
+
+---
+
+### 9. Install Node.js via nvm
+
+```bash
+nvm install --lts        # install latest LTS
+nvm use --lts            # activate it
+```
+
+Verify:
+
+```bash
+node -v
+npm -v
+```
+
+**Useful nvm commands:**
+
+| Command | Description |
+|---------|-------------|
+| `nvm list` | List installed versions |
+| `nvm install <version>` | Install a specific version |
+| `nvm use <version>` | Switch to a version |
+| `nvm uninstall <version>` | Remove a version |
+
+---
+
+### 10. Install Cursor
+
+1. Download the installer from [cursor.com](https://www.cursor.com).
+2. Run `CursorSetup.exe` and follow the prompts.
+3. On first launch, sign in and complete the onboarding.
+
+**Recommended settings:**
+
+- Set terminal to **Git Bash**: `Terminal › Default Profile: Git Bash`
+- Enable **Auto Save**: `File › Auto Save`
+
+**Set Cursor as default git editor (optional):**
+
+```bash
+git config --global core.editor "cursor --wait"
+```
+
+---
+
+### 11. Install Recommended Extensions
+
+Install all at once from the terminal:
+
+```bash
+cursor --install-extension dbaeumer.vscode-eslint
+cursor --install-extension esbenp.prettier-vscode
+cursor --install-extension dsznajder.es7-react-js-snippets
+cursor --install-extension angular.ng-template
+cursor --install-extension pkief.material-icon-theme
+cursor --install-extension usernamehw.errorlens
+cursor --install-extension ni3rav.andromeda-night
+```
+
+| Extension | Purpose |
+|-----------|---------|
+| `dbaeumer.vscode-eslint` | ESLint integration |
+| `esbenp.prettier-vscode` | Code formatter |
+| `dsznajder.es7-react-js-snippets` | React / JS snippets |
+| `angular.ng-template` | Angular template support |
+| `pkief.material-icon-theme` | File icon theme |
+| `usernamehw.errorlens` | Inline error highlighting |
+| `ni3rav.andromeda-night` | Color theme |
