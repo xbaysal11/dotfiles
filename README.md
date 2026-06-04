@@ -54,6 +54,7 @@
 2. Download the `.pkg.tar.zst` matching your architecture.
 3. Extract with **7-Zip** or **PeaZip**: `.zst` → `.tar` → folders.
 4. Merge `usr/` and `etc/` into `C:\Program Files\Git` *(approve admin permissions if prompted)*.
+5. Verify: `zsh --version`
 
 ---
 
@@ -92,10 +93,11 @@ git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins \
   ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/autoupdate
 ```
 
-Enable in `~/.zshrc`:
+Copy the `.zshrc` from this repo (includes plugins and all settings):
 
-```zsh
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting autoupdate)
+```bash
+cp /path/to/dotfiles/.zshrc ~/.zshrc
+source ~/.zshrc
 ```
 
 ---
@@ -128,19 +130,22 @@ npm -v
 ### 10. Install VSCode
 
 1. Download the installer from [visualstudio.com](https://code.visualstudio.com/).
-2. Run VSCode
+2. Run the installer and launch VSCode.
 3. On first launch, sign in and complete config sync.
 
 ---
 
 ### 11. Install Claude Code
 
-1. Install claude-code global
+1. Install Claude Code globally
 
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
-2. Install Context7 mcp server
+
+2. Verify: `claude --version`
+
+3. Install Context7 MCP server (get your API key from [console.upstash.com](https://console.upstash.com))
 
 ```bash
 claude mcp add --scope user context7 -- npx -y @upstash/context7-mcp --api-key YOUR_API_KEY
@@ -153,6 +158,7 @@ claude mcp add --scope user context7 -- npx -y @upstash/context7-mcp --api-key Y
 1. Download the installer from [cursor.com](https://www.cursor.com).
 2. Run `CursorSetup.exe` and follow the prompts.
 3. On first launch, sign in and complete the onboarding.
+4. Verify: `cursor --version`
 
 ---
 
