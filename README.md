@@ -123,7 +123,30 @@ npm -v
 
 ---
 
-### 10. Install Cursor
+### 10. Install VSCode
+
+1. Download the installer from [visualstudio.com](https://code.visualstudio.com/).
+2. Run VSCode
+3. On first launch, sign in and complete config sync.
+
+---
+
+### 11. Install Claude Code
+
+1. Install claude-code global
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+2. Install Context7 mcp server
+
+```bash
+claude mcp add --scope user context7 -- npx -y @upstash/context7-mcp --api-key YOUR_API_KEY
+```
+
+---
+
+### Install Cursor
 
 1. Download the installer from [cursor.com](https://www.cursor.com).
 2. Run `CursorSetup.exe` and follow the prompts.
@@ -131,7 +154,7 @@ npm -v
 
 ---
 
-### 11. Install Recommended Extensions
+### Install Recommended Extensions
 
 ```bash
 cursor --install-extension dbaeumer.vscode-eslint
