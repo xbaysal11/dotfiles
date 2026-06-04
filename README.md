@@ -1,6 +1,6 @@
 # Ultimate Dev Terminal Setup for Windows
 
-> Zsh + Oh My Zsh inside Git Bash via Tabby Terminal — no WSL required.
+> Zsh + Oh My Zsh in Git Bash via Tabby Terminal, with Claude Code CLI and Cursor — no WSL required.
 
 ---
 
@@ -15,7 +15,9 @@
 | 5 | Oh My Zsh + Plugins | Shell framework & enhancements |
 | 6 | [nvm-windows](https://github.com/coreybutler/nvm-windows/releases) | Node version manager for Windows |
 | 7 | Node.js (via nvm) | JavaScript runtime |
-| 8 | [Cursor](https://www.cursor.com) | AI-powered code editor |
+| 8 | [VSCode](https://code.visualstudio.com/) | Code editor |
+| 9 | Claude Code (via npm) | AI-powered CLI for Claude |
+| 10 | [Cursor](https://www.cursor.com) | AI-powered code editor |
 
 ---
 
