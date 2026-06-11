@@ -1,0 +1,8 @@
+{
+  "theme": "dark",
+  "effortLevel": "medium",
+  "statusLine": {
+    "type": "command",
+    "command": "bash C:/Users/bdaniarov/.claude/statusline-command.sh"
+  }
+}
