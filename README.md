@@ -115,7 +115,7 @@ source ~/.zshrc
 
 ```bash
 nvm install lts
-nvm use --lts
+nvm use lts
 ```
 
 Verify:
