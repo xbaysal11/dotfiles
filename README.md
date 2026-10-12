@@ -114,7 +114,7 @@ source ~/.zshrc
 ### 9. Install Node.js via nvm
 
 ```bash
-nvm install --lts
+nvm install lts
 nvm use --lts
 ```
 
